@@ -49,6 +49,8 @@
     "mime-db": "^1.52.0",
     "mime-types": "^2.1.35",
     "mingo": "^6.4.10",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.1.0",
     "morgan": "^1.10.0",
     "ms": "^2.0.0",
     "negotiator": "^0.6.3",

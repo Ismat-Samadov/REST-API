@@ -2,10 +2,15 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
+// routes
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
 
+mongoose.connect('mongodb+srv://admin:admin@mycluster.tug3e7x.mongodb.net/?retryWrites=true&w=majority', {
+    useMongoClient:true
+});
 
 
 
