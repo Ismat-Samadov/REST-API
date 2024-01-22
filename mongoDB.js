@@ -24,3 +24,6 @@ async function run() {
   }
 }
 run().catch(console.dir);
+
+
+// mongodb+srv://admin:<password>@mycluster.tug3e7x.mongodb.net/?retryWrites=true&w=majority
