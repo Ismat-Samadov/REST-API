@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
 
-mongoose.connect('mongodb+srv://admin:admin@mycluster.tug3e7x.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://admin:'+process.env.MONGO_ATLAS_PW+'@mycluster.tug3e7x.mongodb.net/?retryWrites=true&w=majority', {
     useMongoClient:true
 });
 
