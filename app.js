@@ -10,10 +10,7 @@ const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
 
 mongoose.connect(
-    // 'mongodb+srv://admin:' +
-    // process.env.MONGO_ATLAS_PW +
-    // '@mycluster.tug3e7x.mongodb.net/?retryWrites=true&w=majority'
-'mongodb+srv://admin:admin@mycluster.tug3e7x.mongodb.net/?retryWrites=true&w=majority'
+    'mongodb+srv://admin:admin@mycluster.tug3e7x.mongodb.net/?retryWrites=true&w=majority'
 )
 .then(() => {
     console.log('MongoDB connected');
@@ -22,9 +19,11 @@ mongoose.connect(
     console.error('MongoDB connection error:', error);
 });
 
+
 app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
