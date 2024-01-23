@@ -1,14 +1,16 @@
+// routes product.js
+
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-
-const Product = require('/models/products');
+const Product = require('../../models/product');
 
 router.get('/', (req, res, next) => {
     res.status(200).json({
         message: 'Handling get requests to /products'
     });
 });
+
 
 router.post('/', (req, res, next) => {
    
@@ -19,15 +21,20 @@ router.post('/', (req, res, next) => {
             price : req.body.price
         }
     );
+    product.save().then(result => {
+            console.log(result);
+        }).catch(err => console.log(err));
     res.status(200).json({
         message: 'Handling post requests to /products',
         createdProduct:product
     });
 });
 
+
+
 router.get('/:productId', (req, res, next) => {
     const id = req.params.productId;
-    if (id === 'special') { // Corrected typo from 'spcial' to 'special'
+    if (id === 'special') { 
         res.status(200).json({
             message: 'you discovered special products',
             id: id

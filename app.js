@@ -1,3 +1,4 @@
+// app.js
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
@@ -9,13 +10,17 @@ const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
 
 mongoose.connect(
-    'mongodb+srv://admin:' +
-    process.env.MONGO_ATLAS_PW +
-    '@mycluster.tug3e7x.mongodb.net/?retryWrites=true&w=majority', {
-    useMongoClient:true
+    // 'mongodb+srv://admin:' +
+    // process.env.MONGO_ATLAS_PW +
+    // '@mycluster.tug3e7x.mongodb.net/?retryWrites=true&w=majority'
+'mongodb+srv://admin:admin@mycluster.tug3e7x.mongodb.net/?retryWrites=true&w=majority'
+)
+.then(() => {
+    console.log('MongoDB connected');
+})
+.catch((error) => {
+    console.error('MongoDB connection error:', error);
 });
-
-
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended:false}));
